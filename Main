@@ -1,1 +1,51 @@
+import java.util.*;
+import java.io.*;
 
+
+public class CheaterChecker
+{
+	public static void main(String[] args) {
+		String filePath = "SumOfMultiples1.txt";
+		//make list
+		
+		ArrayList<String> lines = new ArrayList<>();
+		
+		try { //testing reading one file 
+		    File myFile = new File(filePath);
+		    Scanner scanner = new Scanner(myFile);
+
+        if (myFile.exists()) {
+                System.out.println("File name: " + myFile.getName());
+                //System.out.println("File size in bytes " + myFile.length());
+            } 
+            else {
+                System.out.println("The file does not exist.");
+            }
+            
+        if(!scanner.hasNext()==true){
+                System.out.println("Error: File is empty");
+            }
+            
+        while(scanner.hasNextLine()) {
+            
+            String line = scanner.nextLine();
+            lines.add(line);
+        }
+        
+        scanner.close();
+
+		}
+		catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error parsing year: " + e.getMessage());
+        }
+        
+        System.out.println("The contents of the file are: " + lines + "\n\n");
+		
+		for (String line : lines) {
+		    System.out.println(line);
+		}
+		
+	}
+}
