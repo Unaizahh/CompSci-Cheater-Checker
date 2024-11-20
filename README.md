@@ -4,3 +4,4 @@ This is a school assignment for our grade 12 computer science course! It is a pl
 
 
 # Creation
+The program was created using Java. 
