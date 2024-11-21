@@ -3,10 +3,10 @@ import java.io.*;
 
 public class ComparisonResult{
     
-    private File work;
+    private ArrayList<String> list;
     
-    public ComparisonResult(work) {
-        this.work = work;
+    public ComparisonResult(ArrayList<String> list) {
+        this.list = list;
     }
     
 }
