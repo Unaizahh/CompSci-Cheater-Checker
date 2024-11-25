@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.lang.Iterable;
 
 public class ComparisonResult{
     
@@ -13,6 +14,8 @@ public class ComparisonResult{
         
             // Get each line of file in a list
     		ArrayList<String> lines = new ArrayList<>();
+    		ArrayList<String> separatedLines = new ArrayList<>();
+    		ArrayList<String> elements = new ArrayList<>();
     		
     		try { //testing reading one file 
     		    File myFile = new File(this.name);
@@ -35,7 +38,7 @@ public class ComparisonResult{
                 String line = scanner.nextLine();
                 lines.add(line);
             }
-            
+    		
             scanner.close();
     
     		}
@@ -45,18 +48,31 @@ public class ComparisonResult{
                 System.out.println("Error parsing year: " + e.getMessage());
             }
             
+            // add spaces between characters in each string
+            for (String str : lines) {
+                StringBuilder separated = new StringBuilder();
+
+                for (char c : str.toCharArray()) {
+                    separated.append(c).append(" ");
+                }
+                
+                separatedLines.add(separated.toString().trim());
+            }
+            
+            // Creating list of individual characters
+            for (String a : separatedLines) {
+                for (char b : a.toCharArray()) {
+                    elements.add(Character.toString(b));
+                }
+            }
+            
             System.out.println("The contents of the file are: " + lines + "\n\n");
-    		
-    		for (String line : lines) {
-    		    System.out.println(line);
-    		}
+            System.out.println("Characters: " + elements + "\n\n");
     	   
-    	   return lines;
+    	   return elements;
 
 		}
 		
-        // Seperate all the characters in the file into a list
-    
     
    /* public  compare(ComparisonResult list, ArrayList<String> ignores) {
 
