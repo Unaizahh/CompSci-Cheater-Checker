@@ -63,6 +63,7 @@ public class ComparisonResult{
             for (String a : separatedLines) {
                 for (char b : a.toCharArray()) {
                     elements.add(Character.toString(b));
+			elements.remove(" ");
                 }
             }
             
