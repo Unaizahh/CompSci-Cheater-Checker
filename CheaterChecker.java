@@ -50,12 +50,17 @@ public class CheaterChecker
                 
                 break;
                 
-	case "c": 
-                 ArrayList<String> ignoredList = new ArrayList<>();
-                 System.out.println("Choose elements to check: ");
-                 boolean ignored = false;
-                 String ignore = "";
-                 
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                //menu();
+                break;
+
+        }
+		
+	ArrayList<String> ignoredList = new ArrayList<>();
+        System.out.println("Choose elements to check: ");
+        boolean ignored = false;
+        String ignore = "";
                  while (!ignored){
                      try{
                          ignore = scanner.nextLine();
@@ -70,16 +75,7 @@ public class CheaterChecker
                     }
              
                  }
-
-                 break;
-			
-            default:
-                System.out.println("Invalid choice. Please try again.");
-                //menu();
-                break;
-
-        }
- 
+		
         ComparisonResult test = new ComparisonResult("SumOfMultiples1.txt");
         test.sortElements();
 		
