@@ -59,7 +59,7 @@ public class CheaterChecker
 	
 	while (start) {
     	ArrayList<String> ignoredList = new ArrayList<>();
-            System.out.println("Choose elements to check and type "end" when finished: ");
+            System.out.println("Choose elements to check and type end when finished: ");
             boolean ignored = false;
             String ignore = "";
                      while (!ignored){
