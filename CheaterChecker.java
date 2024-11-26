@@ -11,6 +11,7 @@ public class CheaterChecker
 		String filePath1 = "SumOfMultiples1.txt";
 		String filePath2 = "SumOfMultiples2.txt";
 		
+		Boolean start = false;
 
 		//make list dynamic 
 		ArrayList<String> files = new ArrayList<>();
@@ -36,6 +37,7 @@ public class CheaterChecker
                             
                             if (files.contains(filePath2)) {
                                 valid = true;
+                                start = true;
                             }
                         } else {
                             System.out.println("Try Again");
@@ -55,31 +57,33 @@ public class CheaterChecker
                 break;
 
         }
-
-	boolean check = false;
-	while (!check){
-	ArrayList<String> ignoredList = new ArrayList<>();
-        System.out.println("Choose elements to check: ");
-        boolean ignored = false;
-        String ignore = "";
-                 while (!ignored){
-                     try{
-                         ignore = scanner.nextLine();
-                         ignoredList.add(ignore);
-                            if (ignore.equals("end")){
-                                ignored = true;
-                            }
+	
+	while (start) {
+    	ArrayList<String> ignoredList = new ArrayList<>();
+            System.out.println("Choose elements to check: ");
+            boolean ignored = false;
+            String ignore = "";
+                     while (!ignored){
+                         try{
+                             ignore = scanner.nextLine();
+                             ignoredList.add(ignore);
+                                if (ignore.equals("end")){
+                                    ignored = true;
+                                }
+                         }
+                          catch (InputMismatchException e) {
+                            System.out.println("Please enter a valid answer.");
+                            scanner.next();
+                        }
+                 
                      }
-                      catch (InputMismatchException e) {
-                        System.out.println("Please enter a valid answer.");
-                        scanner.next();
-                    }
-             
-                 }
-		
-        ComparisonResult test = new ComparisonResult("SumOfMultiples1.txt");
-        test.sortElements();
-	}
-		
+    		
+            ComparisonResult file1 = new ComparisonResult(filePath1); // file your checking for plagarism
+            ComparisonResult file2 = new ComparisonResult(filePath2); // file your basing claim on
+            
+            System.out.println(file1.calculatePlagarism(file2, ignoredList));
+            
+            start = false;
+        }
 	}
 }
