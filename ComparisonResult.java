@@ -68,26 +68,26 @@ public class ComparisonResult{
                 }
             }
             
-            /*System.out.println("The contents of the file are: " + lines + "\n\n");
-            System.out.println("Characters: " + elements + "\n\n");*/
+            System.out.println("The contents of the file are: " + lines + "\n\n");
+            System.out.println("Characters: ");
     	   
     	   return elements;
 
 		}
 		
     
-   public double calculatePlagarism(ComparisonResult obj, ArrayList<String> ignores) {
+   public double calculatePlagiarism(ComparisonResult obj, ArrayList<String> ignores) {
 
         ArrayList<String> list1 = this.sortElements(); // elements of one file
         ArrayList<String> list2 = obj.sortElements(); // elements of other files
         double oops = 0; // plagirism counter
         int total = list1.size() + list2.size(); // total number of elements for calculations
         
-        int limit =  list1.size() > list2.size()? list1.size(): list2.size(); // setting limit for iterating based on larger file
+        int limit =  (list1.size() < list2.size()) ? list1.size(): list2.size(); // setting limit for iterating based on larger file
         
         for (int i = 0; i < limit; i++) {
-            if (!ignores.contains(list1.get(i)) & !ignores.contains(list2.get(i))) // ingores chosen elements in the list{ 
-                if (list1.get(i).equals(list2.get(i))) {
+            if (list1.get(i).equals(list2.get(i))) {
+                if (!ignores.contains(list1.get(i)) || !ignores.contains(list2.get(i))) {// ingores chosen elements in the list{ 
                     if (list1.get(i).equals("i") || list1.get(i).equals("j") || list1.get(i).equals("n")) { // small weights on generally commonly used letters
                         oops++;
                     } else if (list1.get(i).equals(";") || list1.get(i).equals("{") || list1.get(i).equals("}")){ // built-in ignoring very common elements
@@ -104,11 +104,10 @@ public class ComparisonResult{
                 
             }
         }  
-        
-        double percent = oops/total * 100;
-        
-        return percent;
-
-    }   
+    }  
+            double percent = Math.round(oops/total * 100);
+            return percent;
+    
+}
 
 }
