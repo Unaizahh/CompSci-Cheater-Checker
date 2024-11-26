@@ -51,7 +51,8 @@ public class CheaterChecker
                 
              case "C": 
                  System.out.println("Choose an element to check: ");
-
+		break;
+			
             default:
                 System.out.println("Invalid choice. Please try again.");
                 //menu();
