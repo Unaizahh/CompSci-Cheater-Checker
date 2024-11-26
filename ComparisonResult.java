@@ -4,6 +4,15 @@ import java.lang.Iterable;
 
 public class ComparisonResult{
     
+    //Coloured Text
+    static String RED = "\u001B[31m";
+    static String YELLOW = "\u001B[33m";
+    static String MAGENTA = "\u001B[35m";
+    static String BLUE = "\u001B[34m";
+    static String RESET = "\u001B[0m";
+    static String BOLD = "\n\033[0;1m";
+    static String UNBOLD = "\033[0;0m";
+    
     private String name;
     ArrayList<String> elements;
     
@@ -23,11 +32,10 @@ public class ComparisonResult{
     		    Scanner scanner = new Scanner(myFile);
     
             if (myFile.exists()) {
-                    System.out.println("File name: " + myFile.getName());
-                    //System.out.println("File size in bytes " + myFile.length());
+                    System.out.println(YELLOW + "\nFile name: " + RESET + BOLD + MAGENTA + myFile.getName() + UNBOLD + RESET);
                 } 
                 else {
-                    System.out.println("The file does not exist.");
+                    System.out.println(RED + "The file does not exist.");
                 }
                 
             if(!scanner.hasNext()==true){
@@ -68,8 +76,8 @@ public class ComparisonResult{
                 }
             }
             
-            System.out.println("The contents of the file are: " + lines + "\n\n");
-            System.out.println("Characters: ");
+            System.out.println(BOLD + BLUE + "The contents of the file are: " + UNBOLD + RESET + lines + "\n\n");
+            System.out.println( "Characters: ");
     	   
     	   return elements;
 
