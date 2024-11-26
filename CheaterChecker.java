@@ -102,9 +102,9 @@ public class CheaterChecker
                 }
                 
                 results.write("\n");
-                results.write(file1.sortElements().toString());
+                results.write(file1.toString());
                 results.write("\n");
-                results.write(file2.sortElements().toString());
+                results.write(file2.toString());
                 
                 results.close();
                 System.out.println(BOLD + YELLOW + "\nSuccessfully calculated plagiarism score." + RESET + UNBOLD);
