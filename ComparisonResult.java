@@ -126,4 +126,8 @@ public class ComparisonResult{
     
 }
 
+            public String toString() {
+                return "Elements: " + elements;
+            }
+
 }
