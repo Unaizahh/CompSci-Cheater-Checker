@@ -20,6 +20,14 @@ public class ComparisonResult{
         this.name = name;
     }
 
+    public String getName() {
+	return this.name;
+    }
+
+    public ArrayList<String> getElements() {
+	return this.elements;
+    }
+
     public ArrayList<String> sortElements() {
         
             // Get each line of file in a list
