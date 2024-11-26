@@ -53,14 +53,13 @@ public class CheaterChecker
                 
             default:
                 System.out.println("Invalid choice. Please try again.");
-                //menu();
                 break;
 
         }
 	
 	while (start) {
     	ArrayList<String> ignoredList = new ArrayList<>();
-            System.out.println("Choose elements to check: ");
+            System.out.println("Choose elements to check and type "end" when finished: ");
             boolean ignored = false;
             String ignore = "";
                      while (!ignored){
@@ -78,8 +77,8 @@ public class CheaterChecker
                  
                      }
     		
-            ComparisonResult file1 = new ComparisonResult(filePath1); // file your checking for plagarism
-            ComparisonResult file2 = new ComparisonResult(filePath2); // file your basing claim on
+            ComparisonResult file1 = new ComparisonResult(filePath1); // file you're checking for plagarism
+            ComparisonResult file2 = new ComparisonResult(filePath2); // file you're basing claim on
             
             double score = file1.calculatePlagiarism(file2, ignoredList); // getting score
             
