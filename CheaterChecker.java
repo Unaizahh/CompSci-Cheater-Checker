@@ -55,7 +55,9 @@ public class CheaterChecker
                 break;
 
         }
-		
+
+	boolean check = false;
+	while (!check){
 	ArrayList<String> ignoredList = new ArrayList<>();
         System.out.println("Choose elements to check: ");
         boolean ignored = false;
@@ -77,6 +79,7 @@ public class CheaterChecker
 		
         ComparisonResult test = new ComparisonResult("SumOfMultiples1.txt");
         test.sortElements();
+	}
 		
 	}
 }
