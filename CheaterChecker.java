@@ -7,6 +7,16 @@ public class CheaterChecker
 	static Scanner options = new Scanner(System.in);
 	static Scanner scanner = new Scanner(System.in);
 	
+    //Coloured Text
+    static String RED = "\u001B[31m";
+    static String YELLOW = "\u001B[33m";
+    static String MAGENTA = "\u001B[35m";
+    static String BLUE = "\u001B[34m";
+    static String RESET = "\u001B[0m";
+    static String BOLD = "\n\033[0;1m";
+    static String UNBOLD = "\033[0;0m";
+    
+	
 	public static void main(String[] args) {
 		String filePath1 = "SumOfMultiples1.txt";
 		String filePath2 = "SumOfMultiples2.txt";
@@ -16,13 +26,13 @@ public class CheaterChecker
 		//make list dynamic 
 		ArrayList<String> files = new ArrayList<>();
 
-	System.out.println("press p to begin cheater checking...");
+	System.out.println(BOLD + "Press \"p\" to begin cheater checking...");
         String menu = options.nextLine();
 
 
         switch (menu) {
             case "p":
-                System.out.println("Enter File Name One: ");
+                System.out.println(BOLD + BLUE + "\nEnter File Name One: " + UNBOLD);
                 boolean valid = false;
                while (!valid) {
                     try {
@@ -30,7 +40,7 @@ public class CheaterChecker
                         files.add(filePath1);
                         
                         if (files.contains(filePath1)) {
-                            System.out.println("Enter File Name Two: ");
+                            System.out.println(BOLD + BLUE + "\nEnter File Name Two: " + UNBOLD);
                             
                             filePath2 = options.nextLine();
                             files.add(filePath2);
@@ -59,7 +69,7 @@ public class CheaterChecker
 	
 	while (start) {
     	ArrayList<String> ignoredList = new ArrayList<>();
-            System.out.println("Choose elements to check and type end when finished: ");
+            System.out.println(BOLD + MAGENTA + "\nChoose elements to check and type \"end\" when finished: " + UNBOLD + RESET);
             boolean ignored = false;
             String ignore = "";
                      while (!ignored){
@@ -88,9 +98,9 @@ public class CheaterChecker
                 results.write("The plagiarism score is: " + score + "%\n");
                 
                 if (score > 70) {
-                    results.write("This is plagiarised!!!"); // flagging files for plagiarism
+                    results.write("----------------\n\nThis is plagiarised!!!"); // flagging files for plagiarism
                 } else {
-                     results.write("This work is not plagiarised");
+                     results.write("--------------------------\n\nThis work is not plagiarised!");
                 }
                 
                 results.write("\n");
@@ -99,7 +109,7 @@ public class CheaterChecker
                 results.write(file2.sortElements().toString());
                 
                 results.close();
-                System.out.println("Successfully calculated plagiarism score.");
+                System.out.println(BOLD + YELLOW + "\nSuccessfully calculated plagiarism score." + RESET + UNBOLD);
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
