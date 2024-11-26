@@ -26,12 +26,12 @@ public class CheaterChecker
 		//make list dynamic 
 		ArrayList<String> files = new ArrayList<>();
 
+	//user starts cheater checker
 	System.out.println(BOLD + "Press \"p\" to begin cheater checking...");
         String menu = options.nextLine();
 
-
         switch (menu) {
-            case "p":
+            case "p": //user chooses which files to compare
                 System.out.println(BOLD + BLUE + "\nEnter File Name One: " + UNBOLD);
                 boolean valid = false;
                while (!valid) {
@@ -47,7 +47,7 @@ public class CheaterChecker
                             
                             if (files.contains(filePath2)) {
                                 valid = true;
-                                start = true;
+                                start = true; //lets user pick elements after choosing the files
                             }
                         } else {
                             System.out.println("Try Again");
@@ -58,16 +58,14 @@ public class CheaterChecker
                         options.next();
                     }
                 }
-                
                 break;
                 
             default:
                 System.out.println("Invalid choice. Please try again.");
                 break;
-
         }
 	
-	while (start) {
+	while (start) { // lets user choose which elements to ignore
     	ArrayList<String> ignoredList = new ArrayList<>();
             System.out.println(BOLD + MAGENTA + "\nChoose elements to check and type \"end\" when finished: " + UNBOLD + RESET);
             boolean ignored = false;
