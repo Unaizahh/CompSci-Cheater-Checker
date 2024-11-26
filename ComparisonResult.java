@@ -77,7 +77,7 @@ public class ComparisonResult{
             }
             
             System.out.println(BOLD + BLUE + "The contents of the file are: " + UNBOLD + RESET + lines + "\n\n");
-            System.out.println( "Characters: ");
+            System.out.println("Characters: " + elements );
     	   
     	   return elements;
 
