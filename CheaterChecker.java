@@ -14,12 +14,12 @@ public class CheaterChecker
 		//make list dynamic 
 		ArrayList<String> files = new ArrayList<>();
 
-	System.out.println("press P to begin cheater checking...");
+	System.out.println("press p to begin cheater checking...");
         String menu = options.nextLine();
 
 
         switch (menu) {
-            case "P":
+            case "p":
                 System.out.println("Enter File Name One: ");
                 boolean valid = false;
                while (!valid) {
@@ -34,8 +34,8 @@ public class CheaterChecker
                             files.add(filePath2);
                             
                             if (files.contains(filePath2)) {
-                                System.out.println("Press C to continue... ");
                                 valid = true;
+				System.out.println("Press c to continue... ");
                             }
                         } else {
                             System.out.println("Try Again");
@@ -49,9 +49,28 @@ public class CheaterChecker
                 
                 break;
                 
-             case "C": 
-                 System.out.println("Choose an element to check: ");
-		break;
+	case "c": 
+                 ArrayList<String> ignoredList = new ArrayList<>();
+                 System.out.println("Choose elements to check: ");
+                 boolean ignored = false;
+                 String ignore = "";
+                 
+                 while (!ignored){
+                     try{
+                         ignore = scanner.nextLine();
+                         ignoredList.add(ignore);
+                            if (ignore.equals("end")){
+                                ignored = true;
+                            }
+                     }
+                      catch (InputMismatchException e) {
+                        System.out.println("Please enter a valid answer.");
+                        scanner.next();
+                    }
+             
+                 }
+
+                 break;
 			
             default:
                 System.out.println("Invalid choice. Please try again.");
