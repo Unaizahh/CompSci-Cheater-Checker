@@ -36,7 +36,6 @@ public class CheaterChecker
                             
                             if (files.contains(filePath2)) {
                                 valid = true;
-				System.out.println("Press c to continue... ");
                             }
                         } else {
                             System.out.println("Try Again");
