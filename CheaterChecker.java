@@ -81,7 +81,30 @@ public class CheaterChecker
             ComparisonResult file1 = new ComparisonResult(filePath1); // file your checking for plagarism
             ComparisonResult file2 = new ComparisonResult(filePath2); // file your basing claim on
             
-            System.out.println(file1.calculatePlagarism(file2, ignoredList));
+            double score = file1.calculatePlagiarism(file2, ignoredList); // getting score
+            
+            // created file to input all results
+            try {
+                FileWriter results = new FileWriter("Results.txt");
+                results.write("The plagiarism score is: " + score + "%\n");
+                
+                if (score > 70) {
+                    results.write("This is plagiarised!!!"); // flagging files for plagiarism
+                } else {
+                     results.write("This work is not plagiarised");
+                }
+                
+                results.write("\n");
+                results.write(file1.sortElements().toString());
+                results.write("\n");
+                results.write(file2.sortElements().toString());
+                
+                results.close();
+                System.out.println("Successfully calculated plagiarism score.");
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
             
             start = false;
         }
